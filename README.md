@@ -51,8 +51,7 @@ AgriConnect/
 ## MySQL Setup
 
 ```sql
-CREATE DATABASE IF NOT EXISTS agriconnect;
-USE agriconnect;
+
 
 CREATE TABLE IF NOT EXISTS crop_sales (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -66,31 +65,7 @@ CREATE TABLE IF NOT EXISTS crop_sales (
 
 ---
 
-## How to Run
 
-1. Clone the repository:
-   ```
-   git clone https://github.com/your-username/agriconnect.git
-   cd agriconnect
-   ```
-
-2. Set up MySQL and create the database using the script above.
-
-3. Update `DBConnection.java` with your MySQL username/password:
-   ```java
-   String user = "your_mysql_username";
-   String pass = "your_mysql_password";
-   ```
-
-4. Add the MySQL JDBC driver (`mysql-connector-java.jar`) to your classpath.
-
-5. Compile and run:
-   ```
-   javac *.java
-   java AgriConnectMain
-   ```
-
----
 
 
 ## Review 1 Rubric Checklist
