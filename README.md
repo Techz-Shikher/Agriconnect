@@ -1,97 +1,75 @@
-# AgriConnect - Java GUI Crop Price Calculator with MySQL
+# AgriConnect (Console-Based Java Project)
 
-AgriConnect is a simple Java-based desktop application that allows users (especially farmers or market agents) to calculate crop prices, enter quantities, and store sales data into a MySQL database using JDBC. This project was developed for an academic GUI-based project submission and includes all necessary components like MVC architecture, database connectivity, and responsive GUI.
-
----
-
-## Features
-
-- GUI built with **Java Swing**
-- 5 crops with pre-set price per kg
-- User inputs quantity and sees the total price
-- Sales data is **saved to MySQL** via **JDBC**
-- Modular code using **Model, DAO, and Controller design pattern**
-- Aesthetic and responsive layout
+AgriConnect is a simple and user-friendly console-based Java application that allows users (such as farmers, traders, or agricultural agents) to **store, view, and calculate crop data** using basic input/output via the terminal.
 
 ---
 
-## Technologies Used
+## 📌 Features
 
-- Java (JDK 8+)
-- Java Swing (GUI)
-- JDBC (MySQL Connector)
-- MySQL Database
-
----
-
-## Crop Pricing Table
-
-| Crop       | Price per Kg (Rs.) |
-|------------|--------------------|
-| Wheat      | 25.50              |
-| Rice       | 32.00              |
-| Maize      | 28.00              |
-| Sugarcane  | 30.50              |
-| Millet     | 27.50              |
+- Add new crops with name, type, price per kg, and quantity.
+- View all entered crop records.
+- Search for a crop by name.
+- Automatically calculate the total price based on quantity and price per kg.
+- Fully interactive console-based interface.
 
 ---
 
-## Project Structure
+## 🛠️ Technologies Used
+
+- **Language:** Java
+- **Environment:** Console/Terminal
+- **Tools:** IntelliJ IDEA / Eclipse / VS Code
+- **Java SDK:** JDK 17 or above
+
+---
+
+## 🧩 Project Structure
 
 ```
-AgriConnect/
-├── AgriConnectMain.java     # GUI + Controller
-├── Crop.java                # Model class
-├── CropDAO.java             # DAO for MySQL
-└── DBConnection.java        # JDBC utility
-```
-
----
-
-## MySQL Setup
-
-```sql
-
-
-CREATE TABLE IF NOT EXISTS crop_sales (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    crop_name VARCHAR(50),
-    quantity INT,
-    price DOUBLE,
-    total DOUBLE,
-    sale_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+AgriConnect-Console/
+│
+├── Crop.java             # Crop class model with attributes and methods
+├── AgriConnectConsole.java  # Main application with menu and logic
+└── README.md             # Project documentation
 ```
 
 ---
 
 
 
-
-## Review 1 Rubric Checklist
-
-| Deliverable Title                                         | Status |
-|-----------------------------------------------------------|--------|
-| JDK & IDE Setup                                           | ✅     |
-| Project Structure Defined                                 | ✅     |
-| Database Schema Designed                                  | ✅     |
-| MySQL Table Created                                       | ✅     |
-| JDBC Connectivity Implemented                             | ✅     |
-| Model, DAO Classes Created                                | ✅     |
-| Aesthetics and Visual Appeal of UI                        | ✅     |
-| Component Placement and Alignment                         | ✅     |
-| Responsiveness and Accessibility of UI                    | ✅     |
+**OUTPUT**
+```
+====== AgriConnect Console Menu ======
+1. Add Crop
+2. View All Crops
+3. Search Crop by Name
+4. Exit
+Enter your choice: 1
+Enter Crop Name: Wheat
+Enter Crop Type: Grain
+Enter Price per Kg: 20
+Enter Quantity: 50
+✅ Crop added successfully.
+```
 
 ---
 
-## Author
+## 📈 Future Enhancements
 
-**Team Nandighosh **
+- File-based or database storage
+- Sorting and filtering by crop type or price
+- User authentication system (Farmer/Trader login)
+- Export crop data to CSV or Excel format
+
+---
+
+## 👨‍💻 Author
+
+**Team Nandighosh**  
 B.Tech CSE, Galgotias University  
 
-
 ---
 
-## License
+## 📄 License
 
-This project is licensed under the MIT License.
+This project is open-source and free to use for educational or personal use.
