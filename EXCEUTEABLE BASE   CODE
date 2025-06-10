@@ -1,0 +1,99 @@
+import java.util.*;
+
+class Crop {
+    String name;
+    String type;
+    double pricePerKg;
+    double quantity; // in kg
+
+    Crop(String name, String type, double pricePerKg, double quantity) {
+        this.name = name;
+        this.type = type;
+        this.pricePerKg = pricePerKg;
+        this.quantity = quantity;
+    }
+
+    double calculatePrice() {
+        return pricePerKg * quantity;
+    }
+
+    void displayCrop() {
+        System.out.println("Crop Name: " + name);
+        System.out.println("Crop Type: " + type);
+        System.out.println("Price per Kg: ₹" + pricePerKg);
+        System.out.println("Quantity: " + quantity + " kg");
+        System.out.println("Total Price: ₹" + calculatePrice());
+        System.out.println("-------------------------------");
+    }
+}
+
+public class AgriConnectConsole {
+    static Scanner sc = new Scanner(System.in);
+    static ArrayList<Crop> cropList = new ArrayList<>();
+
+    public static void main(String[] args) {
+        int choice;
+        do {
+            System.out.println("\n====== AgriConnect Console Menu ======");
+            System.out.println("1. Add Crop");
+            System.out.println("2. View All Crops");
+            System.out.println("3. Search Crop by Name");
+            System.out.println("4. Exit");
+            System.out.print("Enter your choice: ");
+            choice = sc.nextInt();
+            sc.nextLine(); // consume newline
+
+            switch (choice) {
+                case 1 -> addCrop();
+                case 2 -> viewAllCrops();
+                case 3 -> searchCrop();
+                case 4 -> System.out.println("Thank you for using AgriConnect!");
+                default -> System.out.println("Invalid choice. Please try again.");
+            }
+        } while (choice != 4);
+    }
+
+    static void addCrop() {
+        System.out.print("Enter Crop Name: ");
+        String name = sc.nextLine();
+        System.out.print("Enter Crop Type (e.g., Fruit, Vegetable, Grain): ");
+        String type = sc.nextLine();
+        System.out.print("Enter Price per Kg (₹): ");
+        double pricePerKg = sc.nextDouble();
+        System.out.print("Enter Quantity (in kg): ");
+        double quantity = sc.nextDouble();
+        sc.nextLine(); // consume newline
+
+        Crop newCrop = new Crop(name, type, pricePerKg, quantity);
+        cropList.add(newCrop);
+        System.out.println("✅ Crop added successfully.");
+    }
+
+    static void viewAllCrops() {
+        if (cropList.isEmpty()) {
+            System.out.println("No crops added yet.");
+            return;
+        }
+        System.out.println("\n===== List of Crops =====");
+        for (Crop crop : cropList) {
+            crop.displayCrop();
+        }
+    }
+
+    static void searchCrop() {
+        System.out.print("Enter Crop Name to Search: ");
+        String searchName = sc.nextLine().toLowerCase();
+        boolean found = false;
+
+        for (Crop crop : cropList) {
+            if (crop.name.toLowerCase().equals(searchName)) {
+                crop.displayCrop();
+                found = true;
+            }
+        }
+
+        if (!found) {
+            System.out.println("❌ Crop not found.");
+        }
+    }
+}
